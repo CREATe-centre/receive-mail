@@ -1,0 +1,45 @@
+OASISFormat: 0.4
+Name:        receive-mail
+Version:     0.1.0
+Synopsis:    A simple SMTP server for OCaml
+Description: 
+  A lightweight SMTP server component for OCaml intended for developers
+  who need to accept emails received via SMTP into their applications.
+  Accepts all emails sent to it.
+Authors:     Dominic Price
+Copyrights:  (C) 2014 Horizon Digital Economy Research
+LicenseFile: LICENCE
+License:     GPL-3
+Homepage:    https://github.com/dominicjprice/receive-mail
+Plugins:     META (0.4), DevFiles (0.4)
+BuildTools:  ocamlbuild, ocamldoc, make, awk
+
+Library smtpd
+  Path:        src
+  Findlibname: smtpd
+  Modules:     Server
+  Pack:        true
+  BuildDepends:
+    bolt,
+    core, 
+    netstring,
+    re,
+    re.perl,
+    unix
+    
+Document smtpd
+  Type:       ocamlbuild (0.1.0)
+  Title:      Receive-Email API Reference
+  Authors:    Dominic Price
+  Format:     HTML
+  Index:      index.html
+  InstallDir: $htmldir/receive-mail
+  XOCamlbuildPath: src
+  XOCamlbuildLibraries: smtpd
+  
+SourceRepository head
+  Type:      git
+  Location:  https://github.com/dominicjprice/receive-mail.git
+  Browser:   https://github.com/dominicjprice/receive-mail
+  Branch:    master    
+  
