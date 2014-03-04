@@ -115,6 +115,8 @@ let start ?max_pending:(max_pending=3) inet_addr port callback =
       Lwt.return ()));
     ] in
   listen () 
-  |> (fun t -> Lwt.on_cancel t (fun () -> Lu.close socket |> ignore); t)
+  |> (fun t -> Lwt.on_cancel t (fun () -> 
+    LOG "Cancelled, closing socket" LEVEL DEBUG;
+    Lu.close socket |> ignore); t)
     
   
