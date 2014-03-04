@@ -25,4 +25,3 @@
 # OASIS_STOP
 <src/*.ml{,i}>: syntax_camlp4o
 <src/*.ml{,i}>: thread
-"src/smtpd.native": thread
