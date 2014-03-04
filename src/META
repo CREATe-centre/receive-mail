@@ -1,8 +1,8 @@
 # OASIS_START
-# DO NOT EDIT (digest: 2992a0f5aa4f2ddaebf1f44d9d5e7e99)
+# DO NOT EDIT (digest: 9994c614c197fd76e73da5d71cbd5dce)
 version = "0.1.0"
 description = "A simple SMTP server for OCaml"
-requires = "bolt core netstring re re.perl unix"
+requires = "bolt core lwt lwt.syntax lwt.unix netstring re re.perl unix"
 archive(byte) = "smtpd.cma"
 archive(byte, plugin) = "smtpd.cma"
 archive(native) = "smtpd.cmxa"

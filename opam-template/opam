@@ -15,4 +15,4 @@ remove: [
   [make "uninstall"]
   ["ocamlfind" "remove" "${library(smtpd).findlibname}"]
 ]
-depends: ["bolt" "core" "ocamlnet" "re"]
+depends: ["bolt" "core" "lwt" "ocamlnet" "re"]

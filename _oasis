@@ -21,7 +21,10 @@ Library smtpd
   Pack:        true
   BuildDepends:
     bolt,
-    core, 
+    core,
+    lwt,
+    lwt.syntax,
+    lwt.unix,
     netstring,
     re,
     re.perl,
