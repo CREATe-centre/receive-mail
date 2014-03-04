@@ -594,8 +594,8 @@ let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 let mydispatch = function
   | After_options -> Options.ocamldoc := S[ !Options.ocamldoc; A"-thread"; ]
   | After_rules ->
-    flag ["ocaml"; "compile"; "logger"] & S[A"-ppopt"; A"-for-pack smtpd"];
-    flag ["ocaml"; "ocamldep"; "logger"] & S[A"-ppopt"; A"-for-pack smtpd"]
+    flag ["ocaml"; "compile"; "logger"] & S[A"-ppopt"; A"-for-pack Smtpd"];
+    flag ["ocaml"; "ocamldep"; "logger"] & S[A"-ppopt"; A"-for-pack Smtpd"]
   | _ -> ()
 
 let () = dispatch (fun e -> dispatch_default e; mydispatch e)
