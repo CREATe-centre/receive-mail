@@ -36,3 +36,21 @@ setup.data:
 .PHONY: build doc test all install uninstall reinstall clean distclean configure
 
 # OASIS_STOP
+
+opam-release:
+	oasis setup
+	$(eval TEMPLATE_DIR:=opam-template)
+	$(eval RELEASE_DIR:=opam-releases)
+	$(eval NAME:=$(shell oasis query name))
+	$(eval VERSION:=$(shell oasis query version))
+	$(eval PACKAGE:=$(NAME).$(VERSION))
+	$(eval DIR:=$(RELEASE_DIR)/$(PACKAGE))
+	mkdir -p $(DIR)
+	tar -cjf $(RELEASE_DIR)/$(PACKAGE).tar.bz2 \
+		--transform 's,^\.,$(PACKAGE),' \
+		--exclude-from=.gitignore \
+		--exclude=.git \
+		--exclude=$(RELEASE_DIR) .
+	for f in descr opam url; do \
+		./oasis-vars "$(TEMPLATE_DIR)/$$f" > $(DIR)/$$f; \
+	done
