@@ -71,9 +71,10 @@ module Conversation = struct
       Buffer.add_string buf "\r\n";
       Buffer.add_string buf data;
       LOG "[%s] Received mail, pushing to callback" id LEVEL DEBUG;
-      Buffer.contents buf |> callback;
-      Buffer.clear buf;
-      wr response_250
+      Lwt.join [
+        (Lwt_unix.yield () >> (Buffer.contents buf |> callback; Lwt.return ()));
+        (Buffer.clear buf; wr response_250)
+      ]
     | Quit -> wr response_221
     | Unknown -> Lwt.return ()) >>
     match req with
