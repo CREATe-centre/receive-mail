@@ -2,13 +2,15 @@ module Lio = Lwt_io
 module Lu = Lwt_unix
 
 let (>>=) = Lwt.(>>=)
-let (>>) a b = a >>= fun () -> b 
 
 module Conversation = struct
   
   let response_220 = "220 receive-mail SMTP Server"
+  
   let response_250 = "250 OK"
+  
   let response_354 = "354"
+  
   let response_221 = "221 Goodbye"
   
   type request =
@@ -94,6 +96,7 @@ module Conversation = struct
     try_lwt Lio.close out_c with _ -> Lwt.return () 
   
 end
+
 
 let sockaddr_to_string = function
   | Lu.ADDR_UNIX s -> s
