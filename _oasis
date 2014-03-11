@@ -1,6 +1,6 @@
 OASISFormat: 0.4
 Name:        receive-mail
-Version:     0.1.1
+Version:     0.1.2
 Synopsis:    A simple SMTP server for OCaml
 Description: 
   A lightweight SMTP server component for OCaml intended for developers
