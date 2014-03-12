@@ -69,8 +69,7 @@ module Conversation = struct
       Buffer.add_string buf rcpt;
       Buffer.add_string buf "\r\n";
       wr response_250
-    | Data data -> 
-      Buffer.add_string buf "\r\n";
+    | Data data ->
       Buffer.add_string buf data;
       LOG "[%s] Received mail, pushing to callback" id LEVEL DEBUG;
       let msg = Buffer.contents buf in
