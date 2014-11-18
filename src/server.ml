@@ -29,7 +29,7 @@ module Conversation = struct
     
   let read_data id in_c out_c =
     write_response out_c id response_354 >>
-    let module S = Core.Core_string in
+    let module S = Core_kernel.Core_string in
     let module B = Buffer in
     let buf = B.create 0 in
     let rec read () = 

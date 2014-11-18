@@ -1,3 +1,9 @@
+0.2.0 / 2014-11-18
+==================
+
+  * License changed to BSD/ISC.
+  * Findlib name changed to receive_mail.
+
 0.1.2 / 2014-03-11
 ==================
 

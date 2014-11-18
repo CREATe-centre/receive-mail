@@ -13,7 +13,15 @@ build: [
   [make "install"]
 ]
 remove: [
+  ["oasis" "setup"]
+  ["./configure" "--prefix" prefix]
   [make "uninstall"]
-  ["ocamlfind" "remove" "${library(smtpd).findlibname}"]
 ]
-depends: ["bolt" "core" "lwt" "oasis" "ocamlnet" "re"]
+depends: [
+  "bolt"
+  "core_kernel"
+  "lwt"
+  "oasis"
+  "ocamlnet"
+  "re"
+]
